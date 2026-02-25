@@ -227,3 +227,45 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    emailjs.init("fIBbY_b4POgG6hGt9");
+
+    const formulario = document.getElementById("contactForm");
+
+    formulario.addEventListener("submit", async function(e) {
+
+        e.preventDefault();
+
+        try {
+
+            document.querySelector(".loading").style.display = "block";
+
+            await emailjs.sendForm(
+                "service_o1rodic",
+                "template_l8fdnrv",
+                this
+            );
+
+            document.querySelector(".loading").style.display = "none";
+            document.querySelector(".sent-message").style.display = "block";
+            document.querySelector(".error-message").style.display = "none";
+
+            formulario.reset();
+
+        } catch (error) {
+
+            document.querySelector(".loading").style.display = "none";
+            document.querySelector(".error-message").innerText = "Error al enviar";
+            document.querySelector(".error-message").style.display = "block";
+
+        }
+
+    });
+
+});
