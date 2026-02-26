@@ -228,15 +228,12 @@
 
 })();
 
-
-
-
-
+//sistema de correo
 document.addEventListener("DOMContentLoaded", function() {
 
     emailjs.init("fIBbY_b4POgG6hGt9");
 
-    const formulario = document.getElementById("contactForm");
+    const formulario = document.getElementById("pepito");
 
     formulario.addEventListener("submit", async function(e) {
 
